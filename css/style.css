@@ -19,7 +19,7 @@ body{
     border-radius: 10px;
 }
 .custom-box.hide{
-    display: none;
+    /* sdisplay: none; */
 }
 .home-box h3{
     font-size: 18px;
