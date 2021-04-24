@@ -7,7 +7,7 @@ let currentQuestion;
 let availableQuestions = [];
 let availableOptions = [];
 //push the question into availableQuestion Array
-function setAvailableQuestion(){
+function setAvailableQuestions(){
     const totalQuestion = quiz.length;
     for(let i=0;i<totalQuestion;i++){
         availableQuestions.push(quiz[i])
@@ -16,11 +16,13 @@ function setAvailableQuestion(){
 //set question number and question and options
 function getNewQuestion(){
     //set question number
-    questionNumber.innerHTML = "Question " + (questionCounter + 1) + " of " + quiz.length;
+    questionNumber.innerHTML = "Question " + (questionCounter + 1) + " of " +  quiz.length;
+
     console.log(questionNumber)
     //set question text
     //get random question
-    const questionIndex = availableQuestions[Math.floor(Math.random() * availableQuestions.length)]
+    const questionIndex = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+
     currentQuestion =  questionIndex;
     questionText.innerHTML = currentQuestion.q;
     // get the position of 'questionindex' from the availableQuestion Array
@@ -45,11 +47,11 @@ function getNewQuestion(){
         Option.className = "option";
         optionContainer.appendChild(option)
     }
-    questionCounter++
+    questionCounter+=1;
 
 }
 function next(){
-    if(questionCounter == quiz.length){
+    if(questionCounter === quiz.length){
         console.log("quiz over");
     }
     else{
@@ -60,7 +62,7 @@ function next(){
 
 window.onload = function(){
     //first we will set all questions in availableQuestions Array
-    setAvailableQuestion();
+    setAvailableQuestions();
     
     // second we will call getnewQuestion(); function
     getNewQuestion();
