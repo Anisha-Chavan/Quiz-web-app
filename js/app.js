@@ -39,18 +39,45 @@ function getNewQuestion(){
         availableOptions.push(i)
 
     }
+    let animationDelay = 0.15;
     
     optionContainer.innerHTML='';
     //ceate options in html
     for(let i=0;i<optionLen;i++){
+    
         const option = document.createElement("div");
         option.innerHTML = currentQuestion.options[i];
         option.id=i;
+        option.style.animationDelay = animationDelay + 's';
+        animationDelay = animationDelay + 0.15;
         option.className = "option";
         optionContainer.appendChild(option)
+        option.setAttribute("onclick","getResult(this)");
     }
     questionCounter+=1;
-
+}
+// get result of current attempt question
+function getResult(eLement){
+    const id = parseInt(eLement.id);
+    //get the answer by comparing the id of clicked option
+    if(id === currentQuestion.answer){
+        //set the green color to correct option
+        eLement.classList.add("correct");
+    }
+    else{
+        //set the red color to wrong option
+        eLement.classList.add("wrong")
+        //if answer is wrong the show correct option by adding green colour the correct option
+        }
+    }
+    unclickableOptions();
+}
+//make all the options unclickable once the user select a option(restrict the user to change the option again)
+function unclickableOptions(){
+    const optionLen = optionContainer.children.length;
+    for(let i=0; i<optionLen; i++){
+        optionContainer.children[i].classList.add("already-answered");
+    }
 }
 function next(){
     if(questionCounter === quiz.length){
