@@ -63,7 +63,6 @@ function next(){
 window.onload = function(){
     //first we will set all questions in availableQuestions Array
     setAvailableQuestions();
-    
     // second we will call getnewQuestion(); function
     getNewQuestion();
 }
