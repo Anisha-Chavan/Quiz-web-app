@@ -39,12 +39,14 @@ function getNewQuestion(){
         availableOptions.push(i)
 
     }
+    
+    optionContainer.innerHTML='';
     //ceate options in html
     for(let i=0;i<optionLen;i++){
         const option = document.createElement("div");
-        Option.innerHTML = currentQuestion.options[i];
-        Option.id=i;
-        Option.className = "option";
+        option.innerHTML = currentQuestion.options[i];
+        option.id=i;
+        option.className = "option";
         optionContainer.appendChild(option)
     }
     questionCounter+=1;
@@ -63,6 +65,7 @@ function next(){
 window.onload = function(){
     //first we will set all questions in availableQuestions Array
     setAvailableQuestions();
+    
     // second we will call getnewQuestion(); function
     getNewQuestion();
 }
