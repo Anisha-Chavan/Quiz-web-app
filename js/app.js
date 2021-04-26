@@ -99,17 +99,17 @@ function unclickableOptions(){
         optionContainer.children[i].classList.add("already-answered");
     }
 }
-function answerIndicator(){
+function answersIndicator(){
     answersIndicatorContainer.innerHTML = '';
     const totalQuestion = quiz.length;
     for(let i=0; i<totalQuestion; i++){
         const indicator = document.createElement("div");
-        //answersIndicatorContainer.appendChild(indicator);
+        answersIndicatorContainer.appendChild(indicator);
 
     }
 }
 function updateAnswerIndicator(markType){
-    answersIndicatorContainer.children[questionCounter-1].classList.add(markType)
+    answersIndicatorContainer.children[questionCounter-1].classList.add(markType);
 
  }
 function next(){
@@ -126,6 +126,16 @@ function quizOver(){
     quizBox.classList.add("hide");
     //show result box
     resultBox.classList.remove("hide");
+    quizResult();
+}
+//get the quiz result
+function quizResult(){
+    quizBox.querySelector(".total-question").innerHTML =
+    quizBox.querySelector(".total-attempt").innerHTML =
+    quizBox.querySelector(".total-correct").innerHTML =
+    quizBox.querySelector(".total-wrong").innerHTML =
+    quizBox.querySelector(".total-score").innerHTML =
+
 }
 
 window.onload = function(){
@@ -135,5 +145,5 @@ window.onload = function(){
     // second we will call getnewQuestion(); function
     getNewQuestion();
     //to create indicator of answer
-    answerIndicator();
+    answersIndicator();
 }
