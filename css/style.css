@@ -209,3 +209,11 @@ body{
 .result-box .btn{
     margin-right: 20px;
 }
+@media(maz-width: 767px){
+    .result-box .btn{
+        margin-bottom: 15px;
+    }
+    body{
+        padding: 21px;
+    }
+}

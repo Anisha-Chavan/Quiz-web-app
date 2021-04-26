@@ -174,3 +174,7 @@ function startQuiz(){
     //to create indicator of answer
     answersIndicator();
 }
+
+
+
+
