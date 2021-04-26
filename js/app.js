@@ -72,7 +72,7 @@ function getResult(eLement){
         //add the indicator to correct mark
         updateAnswerIndicator("correct");
         correctAnswers++;
-        console.log("correct:"+correctAnswers)
+        
     }
     else{
         //set the red color to wrong option
@@ -114,7 +114,7 @@ function updateAnswerIndicator(markType){
  }
 function next(){
     if(questionCounter === quiz.length){
-        console.log("quiz over");
+        
         quizOver();
     }
     else{
@@ -150,6 +150,14 @@ function tryAgainQuiz(){
     quizBox.classList.remove("hide")
     resetQuiz();
     startQuiz();
+}
+function goToHome(){
+    //hide result box
+    resultBox.classList.add("hide");
+    //show home box
+    homeBox.classList.remove("hide");
+    resetQuiz();
+
 }
 //#### STARTING POINT ####
 
