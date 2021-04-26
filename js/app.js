@@ -70,8 +70,9 @@ function getResult(eLement){
         //if answer is wrong the show correct option by adding green colour the correct option
         }
     }
+
     unclickableOptions();
-}
+
 //make all the options unclickable once the user select a option(restrict the user to change the option again)
 function unclickableOptions(){
     const optionLen = optionContainer.children.length;
