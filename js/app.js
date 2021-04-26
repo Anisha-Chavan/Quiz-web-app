@@ -1,6 +1,7 @@
 const questionNumber = document.querySelector(".question-number");
 const questionText =  document.querySelector(".question-text");
 const optionContainer =  document.querySelector(".option-container");
+const answersIndicatorContainer = document.querySelector(".answers-indicator");
 
 let questionCounter = 0;
 let currentQuestion;
@@ -63,10 +64,14 @@ function getResult(eLement){
     if(id === currentQuestion.answer){
         //set the green color to correct option
         eLement.classList.add("correct");
+        //add the indicator to correct mark
+        updateAnswerIndicator("correct");
     }
     else{
         //set the red color to wrong option
-        eLement.classList.add("wrong")
+        eLement.classList.add("wrong");
+         //add the indicator to wrong mark
+         updateAnswerIndicator("wrong");
         //if answer is wrong the show correct option by adding green colour the correct option
         const optionLen = optionContainer.children.length;
         for(let i=0; i<optionLen; i++){
@@ -86,6 +91,18 @@ function unclickableOptions(){
         optionContainer.children[i].classList.add("already-answered");
     }
 }
+function answerIndicator(){
+    const totalQuestion = quiz.length;
+    for(let i=0; i<totalQuestion; i++){
+        const indicator = document.createElement("div");
+        //answersIndicatorContainer.appendChild(indicator);
+
+    }
+}
+function updateAnswerIndicator(markType){
+    answersIndicatorContainer.children[questionCounter-1].classList.add(markType)
+
+ }
 function next(){
     if(questionCounter === quiz.length){
         console.log("quiz over");
@@ -102,4 +119,6 @@ window.onload = function(){
     
     // second we will call getnewQuestion(); function
     getNewQuestion();
+    //to create indicator of answer
+    answerIndicator();
 }
