@@ -2,11 +2,16 @@ const questionNumber = document.querySelector(".question-number");
 const questionText =  document.querySelector(".question-text");
 const optionContainer =  document.querySelector(".option-container");
 const answersIndicatorContainer = document.querySelector(".answers-indicator");
+const homeBox = document.querySelector(".home-box");
+const quizBox = document.querySelector(".quiz-box");
+const resultBox = document.querySelector(".result-box");
 
 let questionCounter = 0;
 let currentQuestion;
 let availableQuestions = [];
 let availableOptions = [];
+let correctAnswers = 0;
+let attempt = 0;
 //push the question into availableQuestion Array
 function setAvailableQuestions(){
     const totalQuestion = quiz.length;
@@ -66,12 +71,14 @@ function getResult(eLement){
         eLement.classList.add("correct");
         //add the indicator to correct mark
         updateAnswerIndicator("correct");
+        correctAnswers++;
+        console.log("correct:"+correctAnswers)
     }
     else{
         //set the red color to wrong option
         eLement.classList.add("wrong");
          //add the indicator to wrong mark
-         updateAnswerIndicator("wrong");
+        updateAnswerIndicator("wrong");
         //if answer is wrong the show correct option by adding green colour the correct option
         const optionLen = optionContainer.children.length;
         for(let i=0; i<optionLen; i++){
@@ -79,10 +86,11 @@ function getResult(eLement){
                 optionContainer.children[i].classList.add("correct");
             }
         }
-        }
     }
-
+    attempt++;
     unclickableOptions();
+}
+
 
 //make all the options unclickable once the user select a option(restrict the user to change the option again)
 function unclickableOptions(){
@@ -92,6 +100,7 @@ function unclickableOptions(){
     }
 }
 function answerIndicator(){
+    answersIndicatorContainer.innerHTML = '';
     const totalQuestion = quiz.length;
     for(let i=0; i<totalQuestion; i++){
         const indicator = document.createElement("div");
@@ -106,12 +115,18 @@ function updateAnswerIndicator(markType){
 function next(){
     if(questionCounter === quiz.length){
         console.log("quiz over");
+        quizOver();
     }
     else{
         getNewQuestion();
     }
 }
-
+function quizOver(){
+    //hide quiz quizbox
+    quizBox.classList.add("hide");
+    //show result box
+    resultBox.classList.remove("hide");
+}
 
 window.onload = function(){
     //first we will set all questions in availableQuestions Array
