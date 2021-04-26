@@ -130,11 +130,11 @@ function quizOver(){
 }
 //get the quiz result
 function quizResult(){
-    quizBox.querySelector(".total-question").innerHTML =
-    quizBox.querySelector(".total-attempt").innerHTML =
-    quizBox.querySelector(".total-correct").innerHTML =
-    quizBox.querySelector(".total-wrong").innerHTML =
-    quizBox.querySelector(".total-score").innerHTML =
+    resultBox.querySelector(".total-question").innerHTML = quiz.length;
+    resultBox.querySelector(".total-attempt").innerHTML = attempt;
+    resultBox.querySelector(".total-correct").innerHTML = correctAnswers;
+    resultBox.querySelector(".total-wrong").innerHTML = attempt - correctAnswers;
+    resultBox.querySelector(".total-score").innerHTML = correctAnswers + " / " + quiz.length;
 
 }
 
