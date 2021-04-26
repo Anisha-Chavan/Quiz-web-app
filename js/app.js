@@ -68,6 +68,12 @@ function getResult(eLement){
         //set the red color to wrong option
         eLement.classList.add("wrong")
         //if answer is wrong the show correct option by adding green colour the correct option
+        const optionLen = optionContainer.children.length;
+        for(let i=0; i<optionLen; i++){
+            if(parseInt(optionContainer.children[i].id) === currentQuestion.answer){
+                optionContainer.children[i].classList.add("correct");
+            }
+        }
         }
     }
 
