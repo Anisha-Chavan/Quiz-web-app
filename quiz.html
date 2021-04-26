@@ -8,12 +8,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="home-box custom-box hide">
+        <div class="home-box custom-box">
             <h1>Instruction</h1>
             <p>Total number of questions: <span class="total-questions">10</span></p>
-            <button type="button" class="btn" onclick="next()">Start Quiz</button>
+            <button type="button" class="btn" onclick="startQuiz()">Start Quiz</button>
         </div>
-        <div class="quiz-box custom-box">
+        <div class="quiz-box custom-box hide">
             <div class="question-number">
                 Question 1 of 10
             </div>
@@ -337,8 +337,8 @@
                     <td><span class="total-score"></span></td>
                 </tr>
             </table>
-            <button type="button" class="btn" onclick="next()">Try Again</button>
-            <button type="button" class="btn" onclick="next()">Go To Home</button>
+            <button type="button" class="btn" onclick="tryAgainQuiz()">Try Again</button>
+            <button type="button" class="btn" onclick="goToHome()">Go To Home</button>
 
 
         </div>

@@ -137,8 +137,27 @@ function quizResult(){
     resultBox.querySelector(".total-score").innerHTML = correctAnswers + " / " + quiz.length;
 
 }
+function resetQuiz(){
+    questionCounter = 0;
+    correctAnswers = 0;
+    attempt = 0;
 
-window.onload = function(){
+}
+function tryAgainQuiz(){
+    //hide the resultBox
+    resultBox.classList.add("hide");
+    //show the quixBox
+    quizBox.classList.remove("hide")
+    resetQuiz();
+    startQuiz();
+}
+//#### STARTING POINT ####
+
+function startQuiz(){
+    //hide home box
+    homeBox.classList.add("hide");
+    //show quiz box
+    quizBox.classList.remove("hide");
     //first we will set all questions in availableQuestions Array
     setAvailableQuestions();
     
