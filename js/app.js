@@ -5,6 +5,9 @@ const answersIndicatorContainer = document.querySelector(".answers-indicator");
 const homeBox = document.querySelector(".home-box");
 const quizBox = document.querySelector(".quiz-box");
 const resultBox = document.querySelector(".result-box");
+var sec = 20;
+var time = setInterval(myTimer, 1000);
+
 
 let questionCounter = 0;
 let currentQuestion;
@@ -114,10 +117,11 @@ function updateAnswerIndicator(markType){
  }
 function next(){
     if(questionCounter === quiz.length){
-        
         quizOver();
-    }
-    else{
+    } else{
+        clearInterval(time);
+        sec = 20;
+        time =  setInterval(myTimer, 1000);
         getNewQuestion();
     }
 }
@@ -158,6 +162,16 @@ function goToHome(){
     homeBox.classList.remove("hide");
     resetQuiz();
 
+}
+
+function myTimer() {
+    document.getElementById('timer').innerHTML = sec + "sec left";
+    sec--;
+    if (sec == -1) {
+        clearInterval(time);
+        alert("Time out!! :(");
+        next();
+    }
 }
 //#### STARTING POINT ####
 
