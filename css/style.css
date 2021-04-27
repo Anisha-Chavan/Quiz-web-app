@@ -217,3 +217,17 @@ body{
         padding: 21px;
     }
 }
+#timer{
+  box-sizing: border-box;
+  width: 3px;
+  height: 2px;
+  padding: 3px;  
+  background-color: red;
+  color:white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  border-radius: 20px;
+}
+.timer-section{
+    margin-bottom: 1rem;
+}
